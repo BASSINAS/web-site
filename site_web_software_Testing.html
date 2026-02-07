@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SOFTWARE TESTING - QA & Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    nav {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+      background: rgba(2,6,23,0.95);
+      border-radius: 8px;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: #020617;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #db2777;
+      margin-bottom: 20px;
+    }
+
+    .tabs {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tab-link {
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    .tab-link:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      background: linear-gradient(90deg, #7c3aed, #db2777, #1e3a8a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 25px rgba(124,58,237,0.5);
+    }
+
+    .card img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #cbd5e1;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 30px 20px;
+      color: #94a3b8;
+    }
+
+    a {
+      color: #db2777;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<script>
+const translations = {
+  fr: {
+    services: "Services",
+    expertise: "Expertise",
+    contact: "Contact",
+    audit: "Audit de tests",
+    optimisation: "Optimisation des tests",
+    cicd: "CI/CD Automation",
+    automation: "Automatisation de tests",
+    security: "Tests de cybersécurité légers"
+  },
+  en: {
+    services: "Services",
+    expertise: "Expertise",
+    contact: "Contact",
+    audit: "Test Audit",
+    optimisation: "Test Optimization",
+    cicd: "CI/CD Automation",
+    automation: "Test Automation",
+    security: "Light Cybersecurity Tests"
+  }
+};
+
+const langSelector = document.getElementById("languageSelector");
+
+langSelector.addEventListener("change", () => {
+  const lang = langSelector.value;
+
+  // Traduire les titres des sections
+  document.querySelector("#services h2").childNodes[2].nodeValue = " " + translations[lang].services;
+  document.querySelector("#expertise h2").childNodes[2].nodeValue = " " + translations[lang].expertise;
+  document.querySelector("#contact h2").innerText = translations[lang].contact;
+
+  // Traduire les cartes services
+  const cards = document.querySelectorAll("#services .card");
+  cards[0].querySelector("h3").innerText = translations[lang].audit;
+  cards[1].querySelector("h3").innerText = translations[lang].optimisation;
+  cards[2].querySelector("h3").innerText = translations[lang].cicd;
+  cards[3].querySelector("h3").innerText = translations[lang].automation;
+  cards[4].querySelector("h3").innerText = translations[lang].security;
+});
+</script>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="https://www.linkedin.com/in/edem-bassine-6119a4118/" target="_blank">LinkedIn</a>
+    <a href="#contact">Contact</a>
+
+    <!-- Sélecteur de langue -->
+    <select id="languageSelector" style="background: rgba(2,6,23,0.95); color: #e5e7eb; border:none; padding:5px 10px; border-radius:5px; font-weight:bold; cursor:pointer;">
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
+    </select>
+  </nav>
+
+
+  <header>
+    <div class="logo">SOFTWARE TESTING</div>
+    <div class="tabs">
+      <a class="tab-link" href="#services">Services</a>
+      <a class="tab-link" href="#expertise">Expertise</a>
+      <a class="tab-link" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Services -->
+<section id="services">
+  <h2>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#db2777" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:8px;">
+      <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+    </svg>
+    Services
+  </h2>
+  <div class="services">
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/64/ffffff/inspection.png" alt="Audit" />
+      <h3>Audit de tests</h3>
+      <p>Analyse complète de votre stratégie pour identifier forces, faiblesses et opportunités d’optimisation.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/64/ffffff/settings.png" alt="Optimisation" />
+      <h3>Optimisation des tests</h3>
+      <p>Réduction du temps d’exécution, meilleure couverture et fiabilité maximale des scénarios existants.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/64/ffffff/git.png" alt="CI/CD" />
+      <h3>CI/CD Automation</h3>
+      <p>Intégration fluide de vos tests automatisés dans les pipelines pour des déploiements rapides et sécurisés.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/64/ffffff/code.png" alt="Automatisation" />
+      <h3>Automatisation de tests</h3>
+      <p>Tests automatisés robustes et maintenables avec Playwright pour accélérer vos cycles de validation.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.icons8.com/ios-filled/64/ffffff/shield.png" alt="Sécurité" />
+      <h3>Tests de cybersécurité légers</h3>
+      <p>Scans d’application et contrôles ciblés pour identifier vulnérabilités et renforcer la protection.</p>
+    </div>
+    <!-- Nouvelle carte Innovation -->
+    <a href="https://ci-booster.lovable.app/" target="_blank" style="text-decoration:none;">
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/64/ffffff/light-on.png" alt="Innovation" />
+        <h3>Innovation</h3>
+        <p>Réduisez d'au moins 30% les échecs et le temps perdu à analyser les erreurs CI/CD.</p>
+      </div>
+    </a>
+  </div>
+
+  </div>
+</section>
+
+<!-- Expertise -->
+<section id="expertise">
+  <h2>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#db2777" viewBox="0 0 24 24" style="vertical-align:middle; margin-right:8px;">
+      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+    </svg>
+    Expertise
+  </h2>
+  <ul>
+    <li>✔ Software Tester Leader</li>
+    <li>✔ SDET & automatisation des tests</li>
+    <li>✔ Vision TestOps : qualité intégrée au delivery</li>
+    <li>✔ Sensibilité forte à la sécurité applicative</li>
+    <li>✔ Approche pragmatique orientée performance et fiabilité</li>
+  </ul>
+</section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>📞 Contact</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
+      <div style="flex:1; min-width:280px; max-width:400px; background:#020617; padding:25px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.4);">
+        <h3>Mes coordonnées</h3>
+        <p>📧 Email : <a href="mailto:edembassine@gmail.com">edembassine@gmail.com</a></p>
+        <p>📱 Téléphone : <a href="tel:+33769476385">07 69 47 63 85</a></p>
+        <p style="margin-top:20px; font-size:0.95rem; color:#94a3b8;">Je réponds rapidement à toutes vos demandes. N’hésitez pas à me contacter pour un audit, conseil ou accompagnement QA.</p>
+      </div>
+
+      <form style="flex:1; min-width:280px; max-width:400px; background:#020617; padding:25px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.4); display:flex; flex-direction:column; gap:12px;">
+        <input type="text" placeholder="Votre nom" required style="padding:12px; border-radius:6px; border:none; font-size:1rem;" />
+        <input type="email" placeholder="Votre email" required style="padding:12px; border-radius:6px; border:none; font-size:1rem;" />
+        <input type="tel" placeholder="Votre téléphone" style="padding:12px; border-radius:6px; border:none; font-size:1rem;" />
+        <textarea rows="5" placeholder="Décrivez votre besoin..." required style="padding:12px; border-radius:6px; border:none; font-size:1rem;"></textarea>
+        <button type="submit" style="padding:14px; border:none; border-radius:6px; font-weight:bold; background: linear-gradient(135deg, #7c3aed, #db2777, #1e3a8a); color:#fff; cursor:pointer; transition:all 0.2s;">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 - SOFTWARE TESTING | QA · SDET · TestOps · Cybersecurity Testing</p>
+  </footer>
+
+</body>
+</html>
