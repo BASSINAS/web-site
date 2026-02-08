@@ -315,6 +315,50 @@
   box-shadow: 0 12px 28px rgba(124,58,237,0.6);
 }
 
+/* Mobile first adjustments */
+@media screen and (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  .topbar .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  .hero-cards-fullwidth {
+    padding: 0 10px;
+  }
+
+  .services {
+    grid-template-columns: 1fr; /* une carte par ligne */
+    gap: 15px;
+  }
+
+  #contact > div {
+    flex-direction: column;
+  }
+
+  #contact form, #contact > div > div:first-child {
+    max-width: 100%;
+  }
+
+  .card img {
+    width: 50px; /* réduire légèrement les icônes */
+  }
+}
+
+
   </style>
 </head>
 <script>
