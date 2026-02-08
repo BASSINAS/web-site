@@ -8,52 +8,73 @@
   .hero-cards-fullwidth {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* moins d'espace entre les blocs */
+  gap: 20px;
   margin: 40px auto;
   width: 100%;
-  max-width: 700px; /* limite la largeur pour un look plus sérieux */
+  max-width: 700px; 
   padding: 0 15px;
 }
 
-.hero-cards-fullwidth .card {
+.hero-cards-fullwidth .card,
+.hero-cards-fullwidth .card-highlight {
   background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(219,39,119,0.08));
-  border-left: 6px solid #db2777; /* accent color */
+  border-left: 6px solid #db2777;
   border-radius: 12px;
-  padding: 25px 20px; /* moins de padding pour resserrer le bloc */
+  padding: 25px 20px;
   width: 100%;
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  text-align: left;
 }
 
-.hero-cards-fullwidth .card:hover {
+.hero-cards-fullwidth .card:hover,
+.hero-cards-fullwidth .card-highlight:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(124,58,237,0.5);
+  background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(219,39,119,0.15));
 }
 
-.hero-cards-fullwidth .card h3 {
-  font-size: 1.3rem; /* plus proportionné au bloc */
+.hero-cards-fullwidth .card h3,
+.hero-cards-fullwidth .card-highlight h3 {
+  font-size: 1.3rem;
   color: #db2777;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.hero-cards-fullwidth .card p {
+.hero-cards-fullwidth .card p,
+.hero-cards-fullwidth .card-highlight ul {
   font-size: 1rem;
-  line-height: 1.5; /* un peu plus compact */
+  line-height: 1.6;
   color: #e5e7eb;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-cards-fullwidth .card {
-    padding: 20px 15px;
-  }
-
-  .hero-cards-fullwidth {
-    max-width: 95%;
-  }
+.hero-cards-fullwidth .card-highlight ul {
+  list-style: none;
+  padding-left: 0;
 }
+
+.hero-cards-fullwidth .card-highlight ul li {
+  margin-bottom: 10px;
+}
+
+.hero-cards-fullwidth .card-highlight .guarantee {
+  margin-top: 15px;
+  padding: 15px;
+  border-left: 5px solid #db2777;
+  background: rgba(219,39,119,0.1);
+  font-weight: bold;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.hero-cards-fullwidth .cta-small {
+  margin-top: 15px;
+  display: inline-block;
+}
+
 
     .hero {
   background: radial-gradient(circle at top, rgba(124,58,237,0.2), transparent 60%), #020617;
@@ -359,47 +380,40 @@ langSelector.addEventListener("change", () => {
   </div>
 </div>
 
-  <section class="hero">
-    <h1>
-      <span class="highlight">–10% de bugs.</span> <span class="highlight">+20% de productivité QA.</span><br/>
-      Des releases enfin sereines.
-    </h1>
+<section class="hero">
+  <h1>
+    <span class="highlight">–10% de bugs.</span> <span class="highlight">+20% de productivité QA.</span><br/>
+    Des releases enfin sereines.
+  </h1>
 
-    <div class="hero-cards-fullwidth">
-      <div class="card">
+  <div class="hero-cards-fullwidth">
+    <!-- Bloc Audit express -->
+    <div class="card">
       <h3>✅ Audit express 2h – Gratuit</h3>
       <p>
         Évaluez rapidement votre système de tests et recevez des recommandations concrètes.<br>
         Découvrez vos failles critiques avant qu’elles n’impactent vos utilisateurs et vos releases.<br><br>
         <strong>Réservez votre créneau dès maintenant – Sans engagement !</strong>
       </p>
-      <a href="#contact" class="cta-small">
-        👉 Réserver mon audit gratuit
-      </a>
+      <a href="#contact" class="cta-small">👉 Réserver mon audit gratuit</a>
     </div>
 
-
-    <div class="card" style="padding:25px 20px; border-left:6px solid #db2777; border-radius:12px; background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(219,39,119,0.08)); box-shadow:0 6px 15px rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease;">
-      <h3 style="font-size:1.3rem; color:#db2777; margin-bottom:15px; text-transform:uppercase; letter-spacing:0.5px;">
-        ✅ Réduction jusqu'à 10% des bugs sur votre fonctionnalité la plus critique – livrable en 1 mois
-      </h3>
-      <ul style="list-style: none; padding-left:0; font-size:1rem; line-height:1.6; color:#e5e7eb;">
-        <li style="margin-bottom:10px;">✔ <strong>Tests automatisés ciblés</strong> sur la fonctionnalité critique de votre application</li>
-        <li style="margin-bottom:10px;">✔ <strong>Exécution quotidienne</strong> sur votre CI pour un suivi précis et fiable</li>
-        <li style="margin-bottom:10px;">✔ <strong>Rapports détaillés et actionnables</strong> offrant une visibilité immédiate sur l’état des tests</li>
-        <li style="margin-bottom:10px;">✔ <strong>Amélioration rapide de la fiabilité et de la stabilité</strong> de cette fonctionnalité</li>
+    <!-- Bloc Réduction de bugs -->
+    <div class="card card-highlight">
+      <h3>✅ Réduction jusqu'à 10% des bugs sur votre fonctionnalité la plus critique – livrable en 1 mois</h3>
+      <ul>
+        <li>✔ <strong>Tests automatisés ciblés</strong> sur la fonctionnalité critique de votre application</li>
+        <li>✔ <strong>Exécution quotidienne</strong> sur votre CI pour un suivi précis et fiable</li>
+        <li>✔ <strong>Rapports détaillés et actionnables</strong> offrant une visibilité immédiate sur l’état des tests</li>
+        <li>✔ <strong>Amélioration rapide de la fiabilité et de la stabilité</strong> de cette fonctionnalité</li>
       </ul>
-      <div style="margin-top:15px; padding:15px; border-left:5px solid #db2777; background: rgba(219,39,119,0.1); font-weight:bold; color:#fff; border-radius:8px; font-size:0.95rem;">
-        Garantie 45 jours : si nos résultats n’atteignent pas vos objectifs, vous êtes intégralement remboursé
+      <div class="guarantee">
+        Garantie : Si après 45 jours les objectifs ne sont pas atteints, nous vous offrons <strong>2 à 3 jours de prestation supplémentaires</strong> sans frais.
       </div>
+      <a href="#contact" class="cta-small">👉 Réserver mon audit gratuit</a>
     </div>
-
-
-      <a href="#contact" class="cta-small">
-        👉 Réserver mon audit gratuit
-      </a>
-    </div>
-  </section>
+  </div>
+</section>
 
 
   <!-- Services -->
