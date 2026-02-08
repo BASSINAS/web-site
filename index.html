@@ -315,66 +315,28 @@
   box-shadow: 0 12px 28px rgba(124,58,237,0.6);
 }
 
-/* Mobile first adjustments */
+/* Padding pour que le hero ne soit pas caché par la topbar */
 @media screen and (max-width: 768px) {
-@media screen and (max-width: 768px) {
-  .hero {
-    padding: 40px 15px 60px 15px; /* moins de padding pour éviter que le texte soit caché */
-    text-align: center;
+  body {
+    padding-top: 130px; /* espace suffisant pour la topbar */
   }
 
   .hero h1 {
-    font-size: 1.5rem;  /* réduit légèrement pour que ça tienne sur l’écran */
+    font-size: 1.6rem;   /* texte plus petit pour mobile */
     line-height: 1.4;
   }
 
   .hero .highlight {
-    display: block; /* chaque portion de texte sur sa ligne */
-  }
-}
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    padding: 10px 20px;
-    gap: 10px;
-  }
-
-  .topbar .menu {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .hero h1 {
-    font-size: 1.6rem;
-    line-height: 1.4;
+    display: block;      /* chaque phrase sur sa ligne */
   }
 
   .hero-cards-fullwidth {
     padding: 0 10px;
-  }
-
-  .services {
-    grid-template-columns: 1fr; /* une carte par ligne */
-    gap: 15px;
-  }
-
-  #contact > div {
-    flex-direction: column;
-  }
-
-  #contact form, #contact > div > div:first-child {
-    max-width: 100%;
-  }
-
-  .card img {
-    width: 50px; /* réduire légèrement les icônes */
+    margin: 30px auto;
   }
 }
+</style>
 
-
-  </style>
 </head>
 <script>
 const translations = {
@@ -429,7 +391,7 @@ langSelector.addEventListener("change", () => {
     <a href="#services">Services</a>
     <a href="#expertise">Expertise</a>
     <a href="#contact">Contact</a>
-    <a href="#contact" class="cta-audit">👉 Audit Gratuit</a>
+    <!-- <a href="#contact" class="cta-audit">👉 Audit Gratuit</a> -->
 
     <!-- Sélecteur de langue -->
     <select id="languageSelector" style="background: rgba(2,6,23,0.95); color: #e5e7eb; border:none; padding:5px 10px; border-radius:5px; font-weight:bold; cursor:pointer;">
@@ -441,7 +403,8 @@ langSelector.addEventListener("change", () => {
 
 <section class="hero">
   <h1>
-    <span class="highlight">–10% de bugs.</span> <span class="highlight">+20% de productivité QA.</span><br/>
+    <span class="highlight">–10% de bugs.</span> 
+    <span class="highlight">+20% de productivité QA.</span><br/>
     Des releases enfin sereines.
   </h1>
 
@@ -473,7 +436,6 @@ langSelector.addEventListener("change", () => {
     </div>
   </div>
 </section>
-
 
   <!-- Services -->
 <section id="services">
