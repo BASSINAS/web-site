@@ -372,6 +372,36 @@
     border-left-width: 4px;
   }
 }
+
+/* =======================
+   Topbar responsive
+   ======================= */
+@media screen and (max-width: 768px) {
+  .topbar {
+    flex-direction: column; /* logo au-dessus, menu en dessous */
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  .topbar .menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .topbar .menu a {
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+  }
+
+  .topbar .menu select {
+    width: 100%;
+  }
+}
+
 </style>
 
 </head>
@@ -441,7 +471,7 @@ langSelector.addEventListener("change", () => {
 <section class="hero">
   <h1>
     <span class="highlight">–10% de bugs.</span> 
-    <span class="highlight">+20% de productivité QA.</span><br/>
+    <span class="highlight">+30% de productivité de vos testeurs.</span><br/>
     Des releases enfin sereines.
   </h1>
 
