@@ -373,58 +373,35 @@
   }
 }
 
-/* =======================
-   Topbar responsive
-   ======================= */
+/* Topbar responsive mobile */
 @media screen and (max-width: 768px) {
   .topbar {
-    flex-direction: column; /* logo au-dessus, menu en dessous */
+    flex-direction: column;        /* logo au-dessus, menu dessous */
     align-items: flex-start;
-    height: auto;
-    padding: 10px 20px;
-    gap: 10px;
-  }
-
-  .topbar .menu {
-    flex-direction: column;
-    width: 100%;
+    height: auto;                  /* enlever la hauteur fixe */
+    padding: 10px 15px;            /* padding réduit */
     gap: 8px;
   }
 
-  .topbar .menu a {
-    font-size: 1rem;
+  .topbar .brand {
+    font-size: 1.6rem;             /* logo plus petit */
+    margin-bottom: 5px;
+  }
+
+  .topbar .menu {
+    flex-direction: column;        /* liens empilés */
     width: 100%;
+    gap: 5px;
+  }
+
+  .topbar .menu a {
+    font-size: 0.95rem;            /* texte plus petit */
+    width: 100%;                   /* prend toute la largeur */
     text-align: left;
   }
 
   .topbar .menu select {
-    width: 100%;
-  }
-}
-/* Topbar responsive simple */
-@media screen and (max-width: 768px) {
-  .topbar {
-    flex-direction: column;   /* logo au-dessus, liens en dessous */
-    align-items: flex-start;
-    height: auto;
-    padding: 10px 20px;
-    gap: 10px;
-  }
-
-  .topbar .menu {
-    flex-direction: column;   /* liens empilés */
-    width: 100%;
-    gap: 8px;
-  }
-
-  .topbar .menu a {
-    width: 100%;              /* chaque lien prend toute la largeur */
-    text-align: left;
-    font-size: 1rem;
-  }
-
-  .topbar .menu select {
-    width: 100%;              /* sélecteur de langue prend toute la largeur */
+    width: 100%;                   /* sélecteur de langue pleine largeur */
     margin-top: 5px;
   }
 }
