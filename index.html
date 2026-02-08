@@ -335,6 +335,43 @@
     margin: 30px auto;
   }
 }
+.hero-cards-fullwidth {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 0 15px;
+  box-sizing: border-box; /* inclut padding dans la largeur */
+}
+
+.hero-cards-fullwidth .card,
+.hero-cards-fullwidth .card-highlight {
+  width: 100%;
+  padding: 20px;
+  border-left: 6px solid #db2777;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  text-align: left;
+  background-clip: padding-box; /* empêche le gradient de dépasser */
+  overflow: hidden; /* empêche le débordement */
+  word-wrap: break-word; /* permet au texte très long de rester dans le bloc */
+}
+
+/* Media query pour petits écrans */
+@media screen and (max-width: 480px) {
+  .hero-cards-fullwidth {
+    padding: 0 10px;
+    margin: 30px auto;
+  }
+
+  .hero-cards-fullwidth .card,
+  .hero-cards-fullwidth .card-highlight {
+    padding: 15px;
+    border-left-width: 4px;
+  }
+}
 </style>
 
 </head>
