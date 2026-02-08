@@ -5,6 +5,102 @@
   <title>SOFTWARE TESTING - QA & Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+  .hero-cards-fullwidth {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* moins d'espace entre les blocs */
+  margin: 40px auto;
+  width: 100%;
+  max-width: 700px; /* limite la largeur pour un look plus sérieux */
+  padding: 0 15px;
+}
+
+.hero-cards-fullwidth .card {
+  background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(219,39,119,0.08));
+  border-left: 6px solid #db2777; /* accent color */
+  border-radius: 12px;
+  padding: 25px 20px; /* moins de padding pour resserrer le bloc */
+  width: 100%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-cards-fullwidth .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(124,58,237,0.5);
+}
+
+.hero-cards-fullwidth .card h3 {
+  font-size: 1.3rem; /* plus proportionné au bloc */
+  color: #db2777;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-cards-fullwidth .card p {
+  font-size: 1rem;
+  line-height: 1.5; /* un peu plus compact */
+  color: #e5e7eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-cards-fullwidth .card {
+    padding: 20px 15px;
+  }
+
+  .hero-cards-fullwidth {
+    max-width: 95%;
+  }
+}
+
+    .hero {
+  background: radial-gradient(circle at top, rgba(124,58,237,0.2), transparent 60%), #020617;
+  padding: 80px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      line-height: 1.3;
+    }
+
+    .hero .highlight {
+    background: linear-gradient(90deg, #7c3aed, #db2777, #1e3a8a);
+    background-clip: text;           /* standard */
+    -webkit-background-clip: text;   /* Chrome / Safari */
+    color: transparent;              /* standard way */
+    -webkit-text-fill-color: transparent; /* Safari */
+  }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+    }
+
+    .hero .cta {
+      display: inline-block;
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #7c3aed, #db2777, #1e3a8a);
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 10px 25px rgba(124,58,237,0.4);
+    }
+
+    .hero .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(124,58,237,0.6);
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -83,11 +179,13 @@
     }
 
     h2 {
-      background: linear-gradient(90deg, #7c3aed, #db2777, #1e3a8a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 30px;
-    }
+    background: linear-gradient(90deg, #7c3aed, #db2777, #1e3a8a);
+    background-clip: text;            /* standard */
+    -webkit-background-clip: text;    /* Chrome / Safari */
+    color: transparent;               /* standard */
+    -webkit-text-fill-color: transparent; /* Safari */
+    margin-bottom: 30px;
+  }
 
     .services {
       display: grid;
@@ -140,6 +238,62 @@
     a:hover {
       text-decoration: underline;
     }
+    .topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(2,6,23,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 2000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.topbar .brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #db2777;
+}
+
+.topbar .menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topbar .menu a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.topbar .menu a:hover {
+  text-decoration: underline;
+}
+
+.topbar .cta-audit {
+  margin-left: 10px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #7c3aed, #db2777, #1e3a8a);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(124,58,237,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.topbar .cta-audit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(124,58,237,0.6);
+}
+
   </style>
 </head>
 <script>
@@ -188,27 +342,65 @@ langSelector.addEventListener("change", () => {
 
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="https://www.linkedin.com/in/edem-bassine-6119a4118/" target="_blank">LinkedIn</a>
+  <div class="topbar">
+  <div class="brand">SOFTWARE TESTING</div>
+
+  <div class="menu">
+    <a href="#services">Services</a>
+    <a href="#expertise">Expertise</a>
     <a href="#contact">Contact</a>
+    <a href="#contact" class="cta-audit">👉 Audit Gratuit</a>
 
     <!-- Sélecteur de langue -->
     <select id="languageSelector" style="background: rgba(2,6,23,0.95); color: #e5e7eb; border:none; padding:5px 10px; border-radius:5px; font-weight:bold; cursor:pointer;">
       <option value="fr">FR</option>
       <option value="en">EN</option>
     </select>
-  </nav>
+  </div>
+</div>
 
+  <section class="hero">
+    <h1>
+      <span class="highlight">–10% de bugs.</span> <span class="highlight">+20% de productivité QA.</span><br/>
+      Des releases enfin sereines.
+    </h1>
 
-  <header>
-    <div class="logo">SOFTWARE TESTING</div>
-    <div class="tabs">
-      <a class="tab-link" href="#services">Services</a>
-      <a class="tab-link" href="#expertise">Expertise</a>
-      <a class="tab-link" href="#contact">Contact</a>
+    <div class="hero-cards-fullwidth">
+      <div class="card">
+      <h3>✅ Audit express 2h – Gratuit</h3>
+      <p>
+        Évaluez rapidement votre système de tests et recevez des recommandations concrètes.<br>
+        Découvrez vos failles critiques avant qu’elles n’impactent vos utilisateurs et vos releases.<br><br>
+        <strong>Réservez votre créneau dès maintenant – Sans engagement !</strong>
+      </p>
+      <a href="#contact" class="cta-small">
+        👉 Réserver mon audit gratuit
+      </a>
     </div>
-  </header>
+
+
+    <div class="card" style="padding:25px 20px; border-left:6px solid #db2777; border-radius:12px; background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(219,39,119,0.08)); box-shadow:0 6px 15px rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <h3 style="font-size:1.3rem; color:#db2777; margin-bottom:15px; text-transform:uppercase; letter-spacing:0.5px;">
+        ✅ Réduction jusqu'à 10% des bugs sur votre fonctionnalité la plus critique – livrable en 1 mois
+      </h3>
+      <ul style="list-style: none; padding-left:0; font-size:1rem; line-height:1.6; color:#e5e7eb;">
+        <li style="margin-bottom:10px;">✔ <strong>Tests automatisés ciblés</strong> sur la fonctionnalité critique de votre application</li>
+        <li style="margin-bottom:10px;">✔ <strong>Exécution quotidienne</strong> sur votre CI pour un suivi précis et fiable</li>
+        <li style="margin-bottom:10px;">✔ <strong>Rapports détaillés et actionnables</strong> offrant une visibilité immédiate sur l’état des tests</li>
+        <li style="margin-bottom:10px;">✔ <strong>Amélioration rapide de la fiabilité et de la stabilité</strong> de cette fonctionnalité</li>
+      </ul>
+      <div style="margin-top:15px; padding:15px; border-left:5px solid #db2777; background: rgba(219,39,119,0.1); font-weight:bold; color:#fff; border-radius:8px; font-size:0.95rem;">
+        Garantie 45 jours : si nos résultats n’atteignent pas vos objectifs, vous êtes intégralement remboursé
+      </div>
+    </div>
+
+
+      <a href="#contact" class="cta-small">
+        👉 Réserver mon audit gratuit
+      </a>
+    </div>
+  </section>
+
 
   <!-- Services -->
 <section id="services">
@@ -241,9 +433,10 @@ langSelector.addEventListener("change", () => {
     </div>
     <div class="card">
       <img src="https://img.icons8.com/ios-filled/64/ffffff/shield.png" alt="Sécurité" />
-      <h3>Tests de cybersécurité légers</h3>
-      <p>Scans d’application et contrôles ciblés pour identifier vulnérabilités et renforcer la protection.</p>
+      <h3>Sécurité applicative</h3>
+      <p>Identifiez et corrigez les failles avant qu’elles n’impactent vos utilisateurs.</p>
     </div>
+
     <!-- Nouvelle carte Innovation -->
     <a href="https://ci-booster.lovable.app/" target="_blank" style="text-decoration:none;">
       <div class="card">
@@ -282,6 +475,7 @@ langSelector.addEventListener("change", () => {
         <h3>Mes coordonnées</h3>
         <p>📧 Email : <a href="mailto:edembassine@gmail.com">edembassine@gmail.com</a></p>
         <p>📱 Téléphone : <a href="tel:+33769476385">07 69 47 63 85</a></p>
+        <p>🔗 LinkedIn : <a href="https://www.linkedin.com/in/edem-bassine-6119a4118/" target="_blank">Voir mon profil</a></p>
         <p style="margin-top:20px; font-size:0.95rem; color:#94a3b8;">Je réponds rapidement à toutes vos demandes. N’hésitez pas à me contacter pour un audit, conseil ou accompagnement QA.</p>
       </div>
 
