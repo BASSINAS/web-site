@@ -401,6 +401,33 @@
     width: 100%;
   }
 }
+/* Topbar responsive simple */
+@media screen and (max-width: 768px) {
+  .topbar {
+    flex-direction: column;   /* logo au-dessus, liens en dessous */
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  .topbar .menu {
+    flex-direction: column;   /* liens empilés */
+    width: 100%;
+    gap: 8px;
+  }
+
+  .topbar .menu a {
+    width: 100%;              /* chaque lien prend toute la largeur */
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .topbar .menu select {
+    width: 100%;              /* sélecteur de langue prend toute la largeur */
+    margin-top: 5px;
+  }
+}
 
 </style>
 
