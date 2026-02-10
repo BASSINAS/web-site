@@ -587,7 +587,7 @@ langSelector.addEventListener("change", () => {
         <p style="margin-top:20px; font-size:0.95rem; color:#4a5568;">Je réponds rapidement à toutes vos demandes. N'hésitez pas à me contacter pour un audit, conseil ou accompagnement QA.</p>
       </div>
 
-      <form action="https://formsubmit.co/edembassine@gmail.com" method="POST" style="flex:1; min-width:280px; max-width:500px; background:#ffffff; padding:25px; border-radius:10px; border:2px solid #000000; box-shadow:0 4px 12px rgba(0,0,0,0.08); display:flex; flex-direction:column; gap:15px;">
+      <form id="demandeAuditForm" action="https://formsubmit.co/edembassine@gmail.com" method="POST" style="flex:1; min-width:280px; max-width:500px; background:#ffffff; padding:25px; border-radius:10px; border:2px solid #000000; box-shadow:0 4px 12px rgba(0,0,0,0.08); display:flex; flex-direction:column; gap:15px;">
         
         <input type="hidden" name="_subject" value="Nouvelle demande d'audit - SOFTWARE TESTING" />
         <input type="hidden" name="_captcha" value="false" />
@@ -670,6 +670,31 @@ langSelector.addEventListener("change", () => {
   <footer>
     <p>© 2026 - SOFTWARE TESTING | QA · SDET · TestOps · Cybersecurity Testing</p>
   </footer>
+
+  <!-- Modal de confirmation -->
+  <div id="confirmationModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#ffffff; border:2px solid #000000; border-radius:12px; padding:40px; max-width:400px; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,0.3);">
+      <div style="font-size:3rem; margin-bottom:20px;">✅</div>
+      <h2 style="color:#000000; margin-bottom:15px;">Merci !</h2>
+      <p style="color:#4a5568; font-size:1.05rem; margin-bottom:30px; line-height:1.6;">
+        Votre demande d'audit a bien été reçue.<br>
+        <strong>Redirection en cours...</strong>
+      </p>
+      <p style="color:#64748b; font-size:0.9rem;">Vous serez redirigé dans quelques secondes</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('demandeAuditForm').addEventListener('submit', function(e) {
+      // Afficher la modale
+      document.getElementById('confirmationModal').style.display = 'flex';
+      
+      // Réinitialiser le formulaire (vider tous les champs)
+      setTimeout(function() {
+        document.getElementById('demandeAuditForm').reset();
+      }, 300);
+    });
+  </script>
 
 </body>
 </html>
