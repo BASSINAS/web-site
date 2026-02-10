@@ -408,6 +408,32 @@
   }
 }
 
+/* Responsive adjustments for the contact form inputs */
+#demandeAuditForm .row-two {
+  display: flex;
+  gap: 12px;
+}
+
+/* Ensure inputs use full width and box-sizing so they don't overflow */
+#demandeAuditForm input,
+#demandeAuditForm select,
+#demandeAuditForm textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  /* Stack the two-column fields on small screens */
+  #demandeAuditForm .row-two {
+    flex-direction: column;
+  }
+
+  /* Slightly reduce gaps on very small screens */
+  #demandeAuditForm {
+    gap: 10px;
+  }
+}
+
 </style>
 
 </head>
@@ -593,7 +619,7 @@ langSelector.addEventListener("change", () => {
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value="https://celadon-gecko-bed4f1.netlify.app/" />
 
-        <div style="display:flex; gap:12px;">
+        <div class="row-two" style="display:flex; gap:12px;">
           <input type="text" name="nom" placeholder="Votre nom *" required style="flex:1; padding:12px; border-radius:6px; border:2px solid #000000; font-size:1rem; background:#f8f9fa; color:#2d3748;" />
           <input type="email" name="email" placeholder="Email *" required style="flex:1; padding:12px; border-radius:6px; border:2px solid #000000; font-size:1rem; background:#f8f9fa; color:#2d3748;" />
         </div>
