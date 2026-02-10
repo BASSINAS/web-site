@@ -686,13 +686,18 @@ langSelector.addEventListener("change", () => {
 
   <script>
     document.getElementById('demandeAuditForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Empêcher la soumission immédiate
+      
       // Afficher la modale
       document.getElementById('confirmationModal').style.display = 'flex';
       
       // Réinitialiser le formulaire (vider tous les champs)
+      document.getElementById('demandeAuditForm').reset();
+      
+      // Attendre 7 secondes, puis soumettre le formulaire
       setTimeout(function() {
-        document.getElementById('demandeAuditForm').reset();
-      }, 300);
+        e.target.submit(); // Soumettre le formulaire
+      }, 7000);
     });
   </script>
 
