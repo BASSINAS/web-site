@@ -1,0 +1,51 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupère le code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Installe Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # 3. Installe les dépendances
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Installe les navigateurs Playwright
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # 5. Lance un serveur statique pour ton HTML
+      - name: Start static server
+        run: |
+          npm install -g serve
+          serve . -l 3000 &
+      
+      # 6. Lance les tests Playwright
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          BASE_URL: http://localhost:3000
+
+      # 7. Upload du rapport Playwright (toujours, même si tests KO)
+      - name: Upload Playwright Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
