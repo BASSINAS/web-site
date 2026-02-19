@@ -3,8 +3,7 @@ const ContactPage = require('../library/contactPage');
 
 test.describe('Contact Section Tests', () => {
   test('contact section displays email, phone, and LinkedIn link', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     // Scroll to contact section
     await page.locator('#contact').scrollIntoViewIfNeeded();
@@ -32,8 +31,7 @@ test.describe('Contact Section Tests', () => {
   });
 
   test('audit form fields are visible and have correct types', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     const contact = new ContactPage(page);
     await page.locator('#contact').scrollIntoViewIfNeeded();
@@ -82,8 +80,7 @@ test.describe('Contact Section Tests', () => {
   });
 
   test('form can be filled with audit request data', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     const contact = new ContactPage(page);
     await page.locator('#contact').scrollIntoViewIfNeeded();
@@ -110,8 +107,7 @@ test.describe('Contact Section Tests', () => {
   });
 
   test('confirmation modal is displayed on form submission', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     const contact = new ContactPage(page);
     await page.locator('#contact').scrollIntoViewIfNeeded();
@@ -157,8 +153,7 @@ test.describe('Contact Section Tests', () => {
   });
 
   test('form fields are reset after form clear', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     const contact = new ContactPage(page);
     await page.locator('#contact').scrollIntoViewIfNeeded();

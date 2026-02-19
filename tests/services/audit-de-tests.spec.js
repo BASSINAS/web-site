@@ -2,8 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Service: Audit de tests', () => {
   test('should display audit de tests card with correct title and description', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     // Scroll to services section
     await page.locator('#services').scrollIntoViewIfNeeded();
@@ -31,8 +30,7 @@ test.describe('Service: Audit de tests', () => {
   });
 
   test('should have accessible card with proper structure', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -51,8 +49,7 @@ test.describe('Service: Audit de tests', () => {
   });
 
   test('audit card should respond to hover', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 

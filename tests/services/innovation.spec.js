@@ -2,8 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Service: Innovation', () => {
   test('should display innovation card with correct title and description', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -24,8 +23,7 @@ test.describe('Service: Innovation', () => {
   });
 
   test('innovation card should contain external link to ci-booster', async ({ page, context }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -41,8 +39,7 @@ test.describe('Service: Innovation', () => {
   });
 
   test('innovation card should be in the grid layout correctly positioned', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 

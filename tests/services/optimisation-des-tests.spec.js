@@ -2,8 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Service: Optimisation des tests', () => {
   test('should display optimisation des tests card with correct title and description', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -25,8 +24,7 @@ test.describe('Service: Optimisation des tests', () => {
   });
 
   test('should have proper styling and layout', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -46,8 +44,7 @@ test.describe('Service: Optimisation des tests', () => {
   });
 
   test('optimisation card icon should be present and correct', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 

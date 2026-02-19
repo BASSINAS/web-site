@@ -4,18 +4,16 @@ const ServicesPage = require('../library/servicesPage');
 
 test.describe('Site smoke tests', () => {
   test('homepage loads and hero contains core message', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
     const home = new HomePage(page);
-    await home.goto(base);
+    await home.goto('.');
     await expect(page).toHaveURL(/\/web-site\//);
     await home.expectHeroContains('–10% de bugs');
   });
 
   test('services section has at least 5 cards', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
     const home = new HomePage(page);
     const services = new ServicesPage(page);
-    await home.goto(base);
+    await home.goto('.');
     await services.gotoSection();
     await services.expectAtLeastCards(5);
   });

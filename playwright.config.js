@@ -9,6 +9,7 @@ const config = {
   },
   use: {
     headless: false,
+    baseURL: 'http://localhost:3001/web-site/',
     viewport: { width: 1280, height: 720 },
     actionTimeout: 10000,
     ignoreHTTPSErrors: true

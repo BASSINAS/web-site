@@ -8,7 +8,7 @@ class HomePage {
     this.servicesLink = 'a[href="#services"]';
   }
 
-  async goto(baseUrl) {
+  async goto(baseUrl = '.') {
     await this.page.goto(baseUrl);
   }
 

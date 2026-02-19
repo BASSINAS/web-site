@@ -2,8 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Service: CI/CD Automation', () => {
   test('should display CI/CD Automation card with correct title and description', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -25,8 +24,7 @@ test.describe('Service: CI/CD Automation', () => {
   });
 
   test('should be positioned correctly in services grid', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -37,8 +35,7 @@ test.describe('Service: CI/CD Automation', () => {
   });
 
   test('CI/CD card should have icon and text visibility', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 

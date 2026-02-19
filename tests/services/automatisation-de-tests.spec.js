@@ -2,8 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Service: Automatisation de tests', () => {
   test('should display automatisation de tests card with correct title and description', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
@@ -25,21 +24,19 @@ test.describe('Service: Automatisation de tests', () => {
   });
 
   test('should have all required text content', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
     const automationCard = page.locator('#services .card').nth(3);
     const cardText = await automationCard.textContent();
 
-    expect(cardText).toContainEqual('Automatisation');
+    expect(cardText).toContain('Automatisation');
     expect(cardText).toBeTruthy();
   });
 
   test('should be clickable and interactive', async ({ page }) => {
-    const base = process.env.BASE_URL || 'http://localhost:5500/web-site/';
-    await page.goto(base);
+    await page.goto('.');
 
     await page.locator('#services').scrollIntoViewIfNeeded();
 
