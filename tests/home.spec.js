@@ -6,7 +6,7 @@ test.describe('Site smoke tests', () => {
   test('homepage loads and hero contains core message', async ({ page }) => {
     const home = new HomePage(page);
     await home.goto('.');
-    await expect(page).toHaveURL(/\/web-site\//);
+    await expect(page).toHaveURL(/http:\/\/localhost:3001\/?$/);
     await home.expectHeroContains('–10% de bugs');
   });
 
