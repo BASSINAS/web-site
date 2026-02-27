@@ -50,7 +50,7 @@ jobs:
       
       # 7. Lance les tests Playwright
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright test --project=chromium
 
       # 8. Upload des rapports et résultats (toujours, même si tests KO)
       - name: Upload Playwright Report

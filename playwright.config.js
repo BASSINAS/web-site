@@ -11,7 +11,7 @@ const config = {
   retries: 1,
   outputDir: 'artifacts',
   use: {
-    headless: false,
+    headless: !!process.env.CI,
     baseURL: 'http://localhost:3001/',
     viewport: { width: 1280, height: 720 },
     actionTimeout: 10000,
