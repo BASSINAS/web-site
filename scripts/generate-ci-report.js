@@ -79,6 +79,8 @@ function computeCounts(playwrightJson) {
 
 function makeMarkdown(payload) {
   const { softwareVersion, runAt, counts, successRate, sourceFile } = payload;
+  const successRateNumber = Number(successRate);
+  const successIcon = successRateNumber >= 90 ? '🟢' : successRateNumber >= 70 ? '🟡' : '🔴';
   return [
     '# CI Test Summary',
     '',
@@ -88,15 +90,15 @@ function makeMarkdown(payload) {
     '',
     '| Metric | Count |',
     '|---|---:|',
-    `| Passed | ${counts.passed} |`,
-    `| Failed | ${counts.failed} |`,
-    `| Flaky | ${counts.flaky} |`,
-    `| Interrupted | ${counts.interrupted} |`,
-    `| Timed out | ${counts.timedOut} |`,
-    `| Skipped | ${counts.skipped} |`,
-    `| Total | ${counts.total} |`,
+    `| ✅ Passed | ${counts.passed} |`,
+    `| ❌ Failed | ${counts.failed} |`,
+    `| 🔁 Flaky | ${counts.flaky} |`,
+    `| ⛔ Interrupted | ${counts.interrupted} |`,
+    `| ⏱️ Timed out | ${counts.timedOut} |`,
+    `| ⏭️ Skipped | ${counts.skipped} |`,
+    `| 📊 Total | ${counts.total} |`,
     '',
-    `- Success rate: **${successRate}%**`
+    `- ${successIcon} Success rate: **${successRate}%**`
   ].join('\n');
 }
 
