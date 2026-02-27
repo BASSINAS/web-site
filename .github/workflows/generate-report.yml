@@ -1,0 +1,44 @@
+name: Generate Test Report
+
+on:
+  workflow_run:
+    workflows: ["Playwright Tests"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion != 'cancelled' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download test artifacts from Playwright run
+        uses: actions/download-artifact@v4
+        with:
+          name: test-artifacts
+          path: .
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - name: Generate CI test summary
+        run: node scripts/generate-ci-report.js
+
+      - name: Upload CI summary report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-test-summary
+          path: |
+            artifacts/ci-test-summary.json
+            artifacts/ci-test-summary.md
